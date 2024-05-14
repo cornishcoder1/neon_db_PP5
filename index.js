@@ -14,8 +14,7 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 app.get("/", async (req, res) => {
   try {
     // Fetch the list of plants from your database using the postgres connection
-    // const { rows } = await pool.query("SELECT * FROM plant_care_log;");
-    const { rows } = await pool.query("postgresql://windingpathdb_owner:Upd6SGCy4rYw@ep-spring-term-a22ni9dt.eu-central-1.aws.neon.tech/thewindingpathdb?sslmode=require");
+    const { rows } = await pool.query("SELECT * FROM plant_care_log;");
     res.json(rows);
   } catch (error) {
     console.error("Failed to fetch plants", error);
